@@ -1,0 +1,13 @@
+mr-auto & ml-auto:
+
+it is like margin-grow,
+
+for mr-auto: the element will take up he remaining space as it's margin-right.
+
+for ml-auto: the element will take up the remaining space as it's margin-left.
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+LinkContainer: allows us to wrap bootstrap elements like a Link.
+                So, if we click on the 'wrapped' element we will go to 
+                where to="/address" is directed.
