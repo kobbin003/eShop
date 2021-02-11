@@ -1,4 +1,5 @@
-import React from "react";
+import axios from "axios";
+import React, { useState, useEffect } from "react";
 import {
   Col,
   Row,
@@ -9,22 +10,29 @@ import {
   Button,
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import Product from "../components/Product";
 import Rating from "../components/Rating";
-import products from "../products";
+// import products from "../products";
 const ProductScreen = ({ match: { params } }) => {
-  const product = findProduct(params.id);
+  const [product, setProduct] = useState({});
+  useEffect(() => {
+    const fetchProduct = async () => {
+      const config = { method: "get", url: `/api/products/${params.id}` };
+      const { data } = await axios(config);
+      setProduct(data);
+    };
+    fetchProduct();
+  }, []);
   return (
     <div>
       <Link to="/" className="btn btn-light my-3 py-3">
-        <h5 className="mb-0">
-          go back
-        </h5>
+        <h5 className="mb-0">go back</h5>
       </Link>
-      <Row>
-        <Col lg={6} className="">
-          <Image src={product.image} fluid />
+      <Row className="p-3">
+        <Col lg={6} md={12} className="mb-md-3 mb-lg-0">
+          <Image src={product.image} fluid className="w-100" />
         </Col>
-        <Col lg={3} className="descript">
+        <Col lg={3} md={6} xs={12} className="descript mt-2 mt-lg-0">
           <ListGroup variant="flush">
             <ListGroup.Item>
               <h3>{product.name}</h3>
@@ -41,7 +49,7 @@ const ProductScreen = ({ match: { params } }) => {
             <ListGroupItem>Description: {product.description}</ListGroupItem>
           </ListGroup>
         </Col>
-        <Col lg={3} className="cartinfo">
+        <Col lg={3} md={6} xs={8} className="cartinfo mt-2 mt-sm-4 mt-lg-0">
           <ListGroup>
             <ListGroup.Item>
               <Row>
@@ -71,7 +79,7 @@ const ProductScreen = ({ match: { params } }) => {
     </div>
   );
 };
-const findProduct = (id) => {
-  return products.find((product) => id === product._id);
-};
+// const findProduct = (products, id) => {
+//   return products.find((product) => id === product._id);
+// };
 export default ProductScreen;

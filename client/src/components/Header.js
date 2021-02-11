@@ -10,17 +10,21 @@ const Header = () => {
         <Container>
           <LinkContainer to="/">
             <Navbar.Brand>
-              <span className="text-lowercase">e</span>Shop
+              <span className="pr-2">
+                <i class="fas fa-book-reader fa-lg"></i>
+              </span>
+              <span className="text-lowercase">bookstor</span>
+              <i class="fab fa-etsy"></i>
             </Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ml-auto">
               <Nav.Link className="d-flex align-items-center">
-                <i className="fas fa-shopping-cart fa-2x"></i> CART
+                <i className="fas fa-shopping-cart fa-2x pr-1"></i> CART
               </Nav.Link>
-              <Nav.Link>
-                <i className="fas fa-user fa-2x"></i> SIGN-IN
+              <Nav.Link className="d-flex align-items-center">
+                <i className="fas fa-user fa-2x pr-1"></i> SIGN-IN
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>

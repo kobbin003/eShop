@@ -1,0 +1,38 @@
+{
+  "name": "bookstore",
+  "version": "1.0.0",
+  "description": "online book store",
+  "main": "server/server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon backend/server/server.js",
+    "client": "npm start --prefix client",
+    "start": "concurrently \"npm run server\" \"npm run client\" "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kobbin003/eShop.git"
+  },
+  "keywords": [
+    "book",
+    "store",
+    "online"
+  ],
+  "author": "kobin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kobbin003/eShop/issues"
+  },
+  "homepage": "https://github.com/kobbin003/eShop#readme",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.11.15"
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "nodemon": "^2.0.7"
+  }
+}

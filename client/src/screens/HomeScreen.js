@@ -1,26 +1,20 @@
-import React, { Fragment, useState, useRef, useEffect } from "react";
-import ReactDOM from "react-dom";
-// import Container from "react-bootstrap/Container";
-import { Image, Col, Row } from "react-bootstrap";
+import React, { useState, useEffect } from "react";
 import Product from "../components/Product";
+// import products from "../products";
+import axios from "axios";
 
-import products from "../products";
 const HomeScreen = () => {
   const [scrolledY, setScrolled] = useState(0);
-  console.log("document", document);
-  const containerRef = useRef();
-  // let scrolled;
+  // console.log("document", document);
+  const [products, setProducts] = useState([]);
   const handleScroll = (e) => {
-    // console.log(e);
+    /** scoll */
     const scrollY = window.scrollY;
-    console.log("scrollY", scrollY); //
-    // scrolled = scrollY;
-    // console.log("scrolled", scrolled);
+    // console.log("scrollY", scrollY);
     setScrolled(scrollY);
-    console.log("scrolledY", scrolledY);
+    // console.log("scrolledY", scrolledY);
   };
   useEffect(() => {
-    // const list = ReactDOM.findDOMNode(containerRef);
     window.addEventListener("scroll", handleScroll);
     return () => {
       localStorage.setItem("homeScreenY", scrolledY);
@@ -30,6 +24,33 @@ const HomeScreen = () => {
   /** oncomponentMount */
   useEffect(() => {
     window.scrollBy(0, localStorage.getItem("homeScreenY"));
+    /** using-fetch */
+    // const fetchData = async () => {
+    //   const response = await fetch("/api/products");
+    //   const data = await response.json();
+    //   setProducts(data);
+    //   console.log(data);
+    // };
+    // fetchData();
+
+    /** axios */
+    const fetchData = async () => {
+      const config = { method: "get", url: "/api/products" };
+      const { data } = await axios(config);
+      // setProducts(data);
+      return data;
+      // console.log(data);
+    };
+    // const updateState = async () => {
+    //   const data = await fetchData();
+    //   setProducts(data);
+    //   console.log(data);
+    // };
+    // updateState();
+    fetchData().then((data) => {
+      setProducts(data);
+      // console.log("data", data);
+    });
     /** on component Unmount */
     return () => {
       //   localStorage.setItem("homeScreenY", scrolledY);
@@ -42,13 +63,14 @@ const HomeScreen = () => {
 
       // onScroll={handleScroll}
     >
-      <h1 ref={containerRef}>LATEST PRODUCTS</h1>
+      <h1>LATEST PRODUCTS</h1>
       <div className="card-grid">
-        {products.map((product) => (
-          <div key={product._id}>
-            <Product product={product} />
-          </div>
-        ))}
+        {products.length > 1 &&
+          products.map((product) => (
+            <div key={product._id}>
+              <Product product={product} />
+            </div>
+          ))}
       </div>
     </div>
   );
