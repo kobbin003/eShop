@@ -11,10 +11,10 @@ const Header = () => {
           <LinkContainer to="/">
             <Navbar.Brand>
               <span className="pr-2">
-                <i class="fas fa-book-reader fa-lg"></i>
+                <i className="fas fa-book-reader fa-lg"></i>
               </span>
               <span className="text-lowercase">bookstor</span>
-              <i class="fab fa-etsy"></i>
+              <i className="fab fa-etsy"></i>
             </Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />

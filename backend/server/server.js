@@ -1,5 +1,7 @@
 import app from "./app.js";
-import color from "colors";
+// import color from "colors";
+// import users from "../data/users.js";
+// console.log(users);
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
   console.log(`app listening on port no. ${PORT}`.yellow.bold);
