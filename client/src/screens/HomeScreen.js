@@ -4,14 +4,18 @@ import Product from "../components/Product";
 // import axios from "axios";
 import { getProducts } from "../actions/productListAction";
 import { useSelector, useDispatch } from "react-redux";
+import { Alert, Spinner } from "react-bootstrap";
+import { Fragment } from "react";
 const HomeScreen = () => {
   //   const [scrolledY, setScrolled] = useState(100);
   // console.log("document", document);
   // const [products, setProducts] = useState([]);
   const dispatch = useDispatch();
-  const { products, loading, errors } = useSelector(
+  const { products, error, loading } = useSelector(
     (state) => state.productList
   );
+  // const loading = true;
+  console.log("error", error);
   /** oncomponentMount */
   useEffect(() => {
     // window.scrollBy(0, localStorage.getItem("homeScreenY"));
@@ -45,9 +49,14 @@ const HomeScreen = () => {
     <div className="homeScreenContainer">
       <h1>LATEST PRODUCTS</h1>
       {loading ? (
-        <h2>loading...</h2>
-      ) : errors ? (
-        <h2>{errors.message}</h2>
+        // <h2>loading...</h2>
+        <div className="d-flex flex-column justify-content-center align-items-center">
+          <Spinner animation="border" role="status" className="mr-3" />
+          Loading...
+        </div>
+      ) : error ? (
+        // <h2>{error.message}</h2>
+        <Alert variant="danger">{error.message}</Alert>
       ) : (
         <div className="card-grid">
           {products.length > 1 &&
