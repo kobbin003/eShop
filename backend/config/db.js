@@ -13,7 +13,7 @@ const connectDB = async () => {
       useFindAndModify: false,
     });
     console.log(
-      `MongoDB connected:`.blue.bgMagenta + `${conn.connection.host}`.underline
+      `MongoDB connected:`.blue.bgYellow + `${conn.connection.host}`.underline
     );
   } catch (error) {
     console.error(`${error.message}`.red.bold);

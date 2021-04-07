@@ -14,8 +14,6 @@ const HomeScreen = () => {
   const { products, error, loading } = useSelector(
     (state) => state.productList
   );
-  // const loading = true;
-  console.log("error", error);
   /** oncomponentMount */
   useEffect(() => {
     // window.scrollBy(0, localStorage.getItem("homeScreenY"));
@@ -47,7 +45,7 @@ const HomeScreen = () => {
   }, []);
   return (
     <div className="homeScreenContainer">
-      <h1>LATEST PRODUCTS</h1>
+      <h1 className="py-2">LATEST PRODUCTS</h1>
       {loading ? (
         // <h2>loading...</h2>
         <div className="d-flex flex-column justify-content-center align-items-center">
@@ -60,8 +58,8 @@ const HomeScreen = () => {
       ) : (
         <div className="card-grid">
           {products.length > 1 &&
-            products.map((product) => (
-              <div key={product._id}>
+            products.map((product, index) => (
+              <div key={index}>
                 <Product product={product} />
               </div>
             ))}

@@ -6,7 +6,7 @@ import {
   GET_PRODUCT_SUCCESS,
   GET_PRODUCT_FAIL,
   GET_PRODUCT_REQUEST,
-} from "./type";
+} from "../constants/type.js";
 export const getProducts = () => async (dispatch) => {
   try {
     dispatch({ type: GET_PRODUCTS_REQUEST });
@@ -18,7 +18,7 @@ export const getProducts = () => async (dispatch) => {
     // console.log("action workking", data);
     dispatch({ type: GET_PRODUCTS_SUCCESS, payload: data });
   } catch (error) {
-    console.error(error);
+    // console.error(error);
     dispatch({
       type: GET_PRODUCTS_FAIL,
       payload: {
@@ -42,7 +42,7 @@ export const getProduct = (productId) => async (dispatch) => {
     const payload = response.data;
     dispatch({ type: GET_PRODUCT_SUCCESS, payload });
   } catch (error) {
-    console.error(error);
+    // console.error(error);
     dispatch({
       type: GET_PRODUCT_FAIL,
       payload: {

@@ -1,0 +1,43 @@
+/** products */
+export const GET_PRODUCTS_REQUEST = "GET_PRODUCTS_REQUEST";
+export const GET_PRODUCTS_SUCCESS = "GET_PRODUCTS_SUCCESS";
+export const GET_PRODUCTS_FAIL = "GET_PRODUCTS_FAIL";
+
+/** product */
+export const GET_PRODUCT_REQUEST = "GET_PRODUCT_REQUEST";
+export const GET_PRODUCT_SUCCESS = "GET_PRODUCT_SUCCESS";
+export const GET_PRODUCT_FAIL = "GET_PRODUCT_FAIL";
+
+/** cart */
+export const CART_ADD_ITEM = "CART_ADD_ITEM";
+export const CART_UPDATE_ITEM = "CART_UPDATE_ITEM";
+export const CART_REMOVE_ITEM = "CART_REMOVE_ITEM";
+// shipping address
+export const SAVE_SHIPPING_ADDRESS = "SAVE_SHIPPING_ADDRESS";
+export const UPDATE_SHIPPING_ADDRESS = "UPDATE_SHIPPING_ADDRESS";
+// payment method
+export const SAVE_PAYMENT_METHOD = "SAVE_PAYMENT_METHOD";
+
+/** set Alert */
+export const SET_ALERT = "SET_ALERT";
+export const REMOVE_ALERT = "REMOVE_ALERT";
+
+/** user-authentication */
+export const REQUEST_USER = "REQUEST_USER";
+export const USER_REQUEST_FAILED = "USER_REQUEST_FAILED";
+export const USER_AUTHENTICATED = "USER_AUTHENTICATED";
+export const LOGIN_USER = "LOGIN_USER";
+export const GET_USER = "GET_USER";
+export const LOGOUT_USER = "LOGOUT_USER";
+export const REGISTER_USER = "REGISTER_USER";
+export const UPDATE_USER_PROFILE = "UPDATE_USER_PROFILE";
+
+/** order */
+export const ORDER_CREATE_REQUEST = "ORDER_CREATE_REQUEST";
+export const ORDER_CREATE_SUCCESS = "ORDER_CREATE_SUCCESS";
+export const ORDER_CREATE_FAIL = "ORDER_CREATE_FAIL";
+export const LEAVE_ORDER_PAGE = "LEAVE_ORDER_PAGE";
+
+export const GET_ORDER_REQUEST = "GET_ORDER_REQUEST";
+export const GET_ORDER_SUCCESS = "GET_ORDER_SUCCESS";
+export const GET_ORDER_FAIL = "GET_ORDER_FAIL";

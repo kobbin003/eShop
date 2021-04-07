@@ -8,12 +8,21 @@ const router = express.Router();
 // @desc    Fetch all products
 // @route   Get /api/products/
 // @access  public
-router.get(
-  "/",
+// router.get(
+//   "/",
+//   asyncHandler(async (req, res) => {
+//     const products = await Product.find();
+//     // res.status(401);
+//     // throw new Error("User not authorized");
+//     res.json(products);
+//   })
+// );
+// OR
+router.route("/").get(
   asyncHandler(async (req, res) => {
     const products = await Product.find();
     // res.status(401);
-    throw new Error("User not authorized");
+    // throw new Error("User not authorized");
     res.json(products);
   })
 );
@@ -32,7 +41,7 @@ router.get(
       throw new Error("product not found");
     }
     // console.log(res.status());
-    console.log("response", res.statusCode);
+    console.log("response", res.statusCode, res.statusMessage);
   })
 );
 // router.get("/:productId", async (req, res) => {
@@ -48,7 +57,6 @@ router.get(
 //   }
 // });
 
-// ?????? whta does custom error handling do???
 // ????? fix scroll while navigating from HomeScreen to Product screen ??????????
 // ???/ what does asyncHandler do ??
 // module.exports = router;

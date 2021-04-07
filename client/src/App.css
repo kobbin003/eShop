@@ -37,3 +37,22 @@ main {
   width: 95%;
   max-height: 70vh;
 }
+/* font sizes*/
+h1 {
+  font-size: 1.8rem;
+}
+h2 {
+  font-size: 1.4rem;
+}
+
+/* REACT-BOOTSTRAP DROPDOWN BACKGROUND-COLOR */
+
+/* when we click the link; i.e show the active link(<a>)*/
+a.dropdown-item:active{
+  /* background-color: green; */
+}
+
+/* active class of NavDropdown.Item */
+a.active.dropdown-item {
+  /* background-color: yellow; */
+}
