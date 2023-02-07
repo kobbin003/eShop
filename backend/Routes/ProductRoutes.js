@@ -23,6 +23,7 @@ router.route("/").get(
     const products = await Product.find();
     // res.status(401);
     // throw new Error("User not authorized");
+    // console.log("product route called");
     res.json(products);
   })
 );

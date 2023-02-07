@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 import dotenv from "dotenv";
 import productRoutes from "../Routes/ProductRoutes.js";
 import userRoutes from "../Routes/UserRoutes.js";
@@ -17,6 +18,14 @@ connectDB();
 /** we can access req.body */
 // app.use(express.json({ extended: false }));
 app.use(express.json());
+
+// to allow cors
+app.use(
+  cors({
+    // origin: "http://localhost:3000", // specific url
+    origin: "*", // any url
+  })
+);
 
 /** routes */
 app.get("/", (req, res) => res.send("API is running..."));

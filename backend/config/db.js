@@ -6,11 +6,12 @@ dotenv.config({ path: ".env.development" });
 // const database = mongoose.connect(process.env.MONGO_URL);
 const connectDB = async () => {
   try {
+    mongoose.set("strictQuery", true);
     const conn = await mongoose.connect(process.env.MONGO_URL, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
-      useCreateIndex: true,
-      useFindAndModify: false,
+      // useCreateIndex: true,
+      // useFindAndModify: false,
     });
     console.log(
       `MongoDB connected:`.blue.bgYellow + `${conn.connection.host}`.underline

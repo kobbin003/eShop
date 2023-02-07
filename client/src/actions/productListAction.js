@@ -15,8 +15,17 @@ export const getProducts = () => async (dispatch) => {
       url: "/api/products",
     };
     const { data } = await axios(config);
-    // console.log("action workking", data);
+
+    console.log("action workking", data);
     dispatch({ type: GET_PRODUCTS_SUCCESS, payload: data });
+    /**
+     * TODO : use fetch instead of axios????
+     */
+    // fetch("/api/products")
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     dispatch({ type: GET_PRODUCTS_SUCCESS, payload: data });
+    //   });
   } catch (error) {
     // console.error(error);
     dispatch({
